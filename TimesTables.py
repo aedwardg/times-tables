@@ -7,13 +7,17 @@ All suggestions for improving functions or readability welcome.
 
 """
 
+import os
 import random
 import time
 from time import sleep
 
 
 base_list = list(range(13))
-number_names = ['zeros', 'ones', 'twos', 'threes', 'fours', 'fives', 'sixes', 'sevens', 'eights', 'nines', 'tens', 'elevens', 'twelves']
+number_names = [
+    'zeros', 'ones', 'twos', 'threes', 'fours', 'fives', 'sixes',
+    'sevens', 'eights', 'nines', 'tens', 'elevens', 'twelves'
+    ]
 n = 0
 final_score = 0
 running_tallies = []
@@ -29,18 +33,20 @@ def multiply(numbers):
         try:
             if int(answer) == product:
                 score += 1
-                print ('Correct!\n\n\n\n\n')
+                print ('Correct!')
                 sleep(1)
+                clear()
             else:
                 print('Incorrect!  {} x {} is: '.format(base_list[n], number))
                 print(product)
-                print('\n\n\n\n\n')
-                sleep(1)
+                sleep(2)
+                clear()
         except:
             print('Incorrect!  {} x {} is: '.format(base_list[n], number))
             print(product)
-            print('\n\n\n\n\n')
-            sleep(1)
+            sleep(2)
+            clear()
+
     running_tallies.append(score)
     points_possible.append(13)
     get_score = 'You got %s out of 13 right.' % (score)
@@ -76,21 +82,24 @@ def test():
         test_q = [random.randint(1, 12), random.randint(1, 12)]
         product = test_q[0] * test_q[1]
         answer = input('What is {} x {}? '.format(test_q[0], test_q[1]))
+
         try:
             if int(answer) == product:
                 score += 1
-                print ('Correct!\n\n\n\n\n')
+                print ('Correct!')
                 sleep(1)
+                clear()
             else:
                 print('Incorrect!  {} x {} is: '.format(test_q[0], test_q[1]))
                 print(product)
-                print('\n\n\n\n\n')
-                sleep(1)
+                sleep(2)
+                clear()
         except:
             print('Incorrect!  {} x {} is: '.format(test_q[0], test_q[1]))
             print(product)
-            print('\n\n\n\n\n')
-            sleep(1)
+            sleep(2)
+            clear()
+
     running_tallies.append(score)
     total_score(final_score)
     raise SystemExit
@@ -100,10 +109,14 @@ def total_score(tally):
     current_time = time.time()
     time_elapsed = current_time - start_time
     tally = final_score + sum(running_tallies)
-    print('Congratulations! You exercised your brain for {0} minutes and {1} seconds!'.format(round(time_elapsed/60, 0), round(time_elapsed % 60, 2)))
+    print('Congratulations! You exercised your brain for {0} minutes and {1} seconds!'.format(
+        round(time_elapsed/60, 0),
+        round(time_elapsed % 60, 2)
+        ))
     print('Your final score is: %s points.' % (tally))
     print('Points possible: %s' % (sum(points_possible)))
     letter_grade = tally / sum(points_possible)
+
     if letter_grade >= 0.9:
         print('Letter grade: A')
     elif letter_grade >= 0.8:
@@ -114,7 +127,10 @@ def total_score(tally):
         print ('Letter grade: D')
     else:
         print ('Letter grade: F')
-    
+
+# Function to clear screen
+def clear():
+    os.system('cls||clear')    
 
 
 # Introduction and begin zeros
