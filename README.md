@@ -5,7 +5,10 @@ With schools closing down around the country due to COVID-19, I figured I would 
 
 ## Play Now Online
 
-If you want to try the game online, with no downloads required, [click here to play!](https://times-tables.elcocodrilo.repl.run/)
+If you want to try the game online, with no downloads required, [click here to play!](https://repl.it/@elcocodrilo/times-tables?embed=1&output=1)
+
+- Simply press the green play button in the bottom of the new window and type your answers into the console.
+
 If you would rather try the game offline, follow the instructions below.
 
 ## Program prerequisites
